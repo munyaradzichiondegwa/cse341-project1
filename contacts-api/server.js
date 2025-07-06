@@ -11,6 +11,9 @@ app.get('/', (req, res) => {
   res.send('📡 Contacts API is running. Try <a href="/contacts">/contacts</a>');
 });
 
+// Debug: log the MongoDB URI before connecting
+console.log("🔍 MONGODB_URI is:", process.env.MONGODB_URI);
+
 // Connect to MongoDB
 mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
