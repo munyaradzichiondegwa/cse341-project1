@@ -6,6 +6,11 @@ const contactRoutes = require('./routes/contacts');
 const app = express();
 app.use(express.json());
 
+// Root route
+app.get('/', (req, res) => {
+  res.send('📡 Contacts API is running. Try <a href="/contacts">/contacts</a>');
+});
+
 // Connect to MongoDB
 mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
@@ -14,7 +19,7 @@ mongoose.connect(process.env.MONGODB_URI, {
 .then(() => console.log("✅ Connected to MongoDB"))
 .catch((err) => console.error("❌ MongoDB connection failed:", err));
 
-// Routes
+// Contacts API routes
 app.use('/contacts', contactRoutes);
 
 // Start server
