@@ -2,16 +2,22 @@ require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const contactRoutes = require('./routes/contacts');
+const Contact = require('./models/contact'); // assuming you have a Contact model
 
 const app = express();
 app.use(express.json());
 
-// Root route
-app.get('/', (req, res) => {
-  res.send('📡 Contacts API is running. Try <a href="/contacts">/contacts</a>');
+// Root route: send list of contacts directly
+app.get('/', async (req, res) => {
+  try {
+    const contacts = await Contact.find({});
+    res.json(contacts);
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to fetch contacts' });
+  }
 });
 
-// Connect to MongoDB (no need for useNewUrlParser and useUnifiedTopology now)
+// Connect to MongoDB
 mongoose.connect(process.env.MONGODB_URI)
   .then(() => console.log("✅ Connected to MongoDB"))
   .catch(err => console.error("❌ MongoDB connection failed:", err));
