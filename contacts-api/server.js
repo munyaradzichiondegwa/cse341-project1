@@ -11,16 +11,10 @@ app.get('/', (req, res) => {
   res.send('📡 Contacts API is running. Try <a href="/contacts">/contacts</a>');
 });
 
-// Debug: log the MongoDB URI before connecting
-console.log("🔍 MONGODB_URI is:", process.env.MONGODB_URI);
-
-// Connect to MongoDB
-mongoose.connect(process.env.MONGODB_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-})
-.then(() => console.log("✅ Connected to MongoDB"))
-.catch((err) => console.error("❌ MongoDB connection failed:", err));
+// Connect to MongoDB (no need for useNewUrlParser and useUnifiedTopology now)
+mongoose.connect(process.env.MONGODB_URI)
+  .then(() => console.log("✅ Connected to MongoDB"))
+  .catch(err => console.error("❌ MongoDB connection failed:", err));
 
 // Contacts API routes
 app.use('/contacts', contactRoutes);
