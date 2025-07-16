@@ -1,19 +1,15 @@
 const swaggerAutogen = require('swagger-autogen')();
 
-const host = process.env.SWAGGER_HOST || 'localhost:3000';
-const schemes = host.includes('localhost') ? ['http'] : ['https'];
-
 const doc = {
   info: {
     title: 'Contacts API',
     description: 'A REST API for managing contacts, for CSE 341.',
   },
-  host: host,    // Use env var or default to localhost
-  schemes: schemes, // http locally, https on deployed
+  host: 'cse341-project1-1-2ox0.onrender.com', // <-- your deployed URL here (no https://)
+  schemes: ['https'], // https because Render uses SSL
 };
 
 const outputFile = './swagger-output.json';
 const endpointsFiles = ['./routes/contacts.js'];
 
-// Generate swagger.json
 swaggerAutogen(outputFile, endpointsFiles, doc);
