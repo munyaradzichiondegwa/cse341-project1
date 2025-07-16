@@ -1,0 +1,63 @@
+# ----------------------------------------------------------------
+# CONTACTS API TEST FILE
+# ----------------------------------------------------------------
+
+# @host can be changed to your Render URL for production testing.
+@host = http://localhost:3000
+@contentType = application/json
+
+# This ID is for "Candie Makhaya" from your database.
+# It will be used for GET (single), PUT, and DELETE requests.
+@contactId = 686afce61bcdf1669646e698
+
+
+###
+# (1) GET ALL CONTACTS
+# Retrieves a list of all contacts currently in the database.
+GET {{host}}/contacts
+
+
+###
+# (2) GET SINGLE CONTACT BY ID
+# Retrieves the contact with the ID specified in the @contactId variable.
+# Should return "Candie Makhaya".
+GET {{host}}/contacts/{{contactId}}
+
+
+###
+# (3) POST (CREATE) A NEW CONTACT
+# Adds a new contact to the database.
+# After running this, you can run GET ALL again to see the new entry.
+POST {{host}}/contacts
+Content-Type: {{contentType}}
+
+{
+  "firstName": "Nevanji",
+  "lastName": "Nehoreka",
+  "email": "nevanjinehoreka@gmail.com",
+  "favoriteColor": "Green",
+  "birthday": "1991-10-26"
+}
+
+
+###
+# (4) PUT (UPDATE) AN EXISTING CONTACT
+# Updates the contact specified by @contactId.
+# This request will change Candie Makhaya's favorite color to "Blue".
+PUT {{host}}/contacts/{{contactId}}
+Content-Type: {{contentType}}
+
+{
+  "firstName": "Candie",
+  "lastName": "Makhaya",
+  "email": "candym@gmail.com",
+  "favoriteColor": "Blue",
+  "birthday": "1999-10-02"
+}
+
+
+###
+# (5) DELETE A CONTACT BY ID
+# Deletes the contact specified by @contactId.
+# Running this will remove "Candie Makhaya" from the database.
+DELETE {{host}}/contacts/{{contactId}}
