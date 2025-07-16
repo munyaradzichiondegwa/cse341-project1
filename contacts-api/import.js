@@ -39,6 +39,35 @@ async function main() {
         "email": "candym@gmail.com",
         "favoriteColor": "Yellow",
         "birthday": new Date("1999-10-02")
+      },
+      // Added 4 new contacts to reach a total of 7
+      {
+        "firstName": "Sarafina",
+        "lastName": "Mazondo",
+        "email": "xerah.mazondo@gmail.com",
+        "favoriteColor": "Cyan",
+        "birthday": new Date("2001-07-15")
+      },
+      {
+        "firstName": "Wayne",
+        "lastName": "Chiviti",
+        "email": "kudawayne.hobs@gmail.com",
+        "favoriteColor": "Pink",
+        "birthday": new Date("2003-08-09")
+      },
+      {
+        "firstName": "Mirirai",
+        "lastName": "Mutasa",
+        "email": "mirie-chishingo@me.com",
+        "favoriteColor": "Red",
+        "birthday": new Date("1999-03-01")
+      },
+      {
+        "firstName": "Jessica",
+        "lastName": "Nhundu",
+        "email": "jessica.nhundu@gmail.com",
+        "favoriteColor": "Pink",
+        "birthday": new Date("2001-09-05")
       }
     ];
 

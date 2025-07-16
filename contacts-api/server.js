@@ -1,13 +1,16 @@
-require('dotenv').config();  // Load environment variables at the very top
+require('dotenv').config();
 
 const express = require('express');
 const mongoose = require('mongoose');
 const contactRoutes = require('./routes/contacts');
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./swagger-output.json');
+const cors = require('cors'); // Add this line
 
 const app = express();
+
 app.use(express.json());
+app.use(cors()); // Add this line to enable CORS for all routes
 
 // Swagger API Docs
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
