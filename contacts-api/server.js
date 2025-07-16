@@ -1,4 +1,5 @@
-require('dotenv').config();
+require('dotenv').config();  // Load environment variables at the very top
+
 const express = require('express');
 const mongoose = require('mongoose');
 const contactRoutes = require('./routes/contacts');
@@ -11,17 +12,19 @@ app.use(express.json());
 // Swagger API Docs
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
+// Root route for friendly welcome message
+app.get('/', (req, res) => {
+  res.send('Welcome to the Contacts API! Please visit /api-docs for documentation.');
+});
+
 // Connect to MongoDB
-mongoose.connect(process.env.MONGODB_URI)
+const uri = process.env.MONGODB_URI;
+mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log("✅ Connected to MongoDB"))
   .catch(err => console.error("❌ MongoDB connection failed:", err.message));
 
 // Contacts API routes
 app.use('/contacts', contactRoutes);
-
-// NOTE: The root route from your original server.js is removed
-// because the primary interaction should be through /contacts or /api-docs.
-// If you want to keep it, you can, but it's redundant.
 
 // Start server
 const PORT = process.env.PORT || 3000;
