@@ -1,33 +1,70 @@
 # ----------------------------------------------------------------
-# CONTACTS API TEST FILE
+# CONTACTS API TEST FILE with 7 contacts
 # ----------------------------------------------------------------
 
-# @host can be changed to your Render URL for production testing.
-@host = http://localhost:3000
+@host = https://cse341-project1-2-s4kt.onrender.com
 @contentType = application/json
 
-# This ID is for "Candie Makhaya" from your database.
-# It will be used for GET (single), PUT, and DELETE requests.
-@contactId = 686afce61bcdf1669646e698
+# IMPORTANT: After running import.js, perform a GET ALL CONTACTS request
+# and replace these placeholder IDs with the actual _id values from your database.
+
+# Existing Contact IDs (verify these against your database after import.js)
+@contactIdCandie = 686afce61bcdf1669646e698
+@contactIdRutendo = 686afce61bcdf1669646e696
+@contactIdMelanie = 686afce61bcdf1669646e697
+
+# NEW Contact IDs (YOU MUST REPLACE THESE PLACEHOLDERS WITH ACTUAL IDs FROM YOUR DB)
+@contactIdSarafina = <ID_SARAFINA>
+@contactIdWayne = <ID_WAYNE>
+@contactIdMirirai = <ID_MIRIRAI>
+@contactIdJessica = <ID_JESSICA>
 
 
 ###
 # (1) GET ALL CONTACTS
-# Retrieves a list of all contacts currently in the database.
 GET {{host}}/contacts
+Content-Type: {{contentType}}
 
 
 ###
-# (2) GET SINGLE CONTACT BY ID
-# Retrieves the contact with the ID specified in the @contactId variable.
-# Should return "Candie Makhaya".
-GET {{host}}/contacts/{{contactId}}
+# (2) GET SINGLE CONTACT BY ID - Candie
+GET {{host}}/contacts/{{contactIdCandie}}
+Content-Type: {{contentType}}
+
+###
+# (2) GET SINGLE CONTACT BY ID - Rutendo
+GET {{host}}/contacts/{{contactIdRutendo}}
+Content-Type: {{contentType}}
+
+###
+# (2) GET SINGLE CONTACT BY ID - Melanie
+GET {{host}}/contacts/{{contactIdMelanie}}
+Content-Type: {{contentType}}
+
+###
+# (2) GET SINGLE CONTACT BY ID - Sarafina (NEW)
+GET {{host}}/contacts/{{contactIdSarafina}}
+Content-Type: {{contentType}}
+
+###
+# (2) GET SINGLE CONTACT BY ID - Wayne (NEW)
+GET {{host}}/contacts/{{contactIdWayne}}
+Content-Type: {{contentType}}
+
+###
+# (2) GET SINGLE CONTACT BY ID - Mirirai (NEW)
+GET {{host}}/contacts/{{contactIdMirirai}}
+Content-Type: {{contentType}}
+
+###
+# (2) GET SINGLE CONTACT BY ID - Jessica (NEW)
+GET {{host}}/contacts/{{contactIdJessica}}
+Content-Type: {{contentType}}
 
 
 ###
 # (3) POST (CREATE) A NEW CONTACT
-# Adds a new contact to the database.
-# After running this, you can run GET ALL again to see the new entry.
+# This creates a brand new contact, not one of the seeded ones.
 POST {{host}}/contacts
 Content-Type: {{contentType}}
 
@@ -41,10 +78,8 @@ Content-Type: {{contentType}}
 
 
 ###
-# (4) PUT (UPDATE) AN EXISTING CONTACT
-# Updates the contact specified by @contactId.
-# This request will change Candie Makhaya's favorite color to "Blue".
-PUT {{host}}/contacts/{{contactId}}
+# (4) PUT (UPDATE) AN EXISTING CONTACT - Candie (change favoriteColor)
+PUT {{host}}/contacts/{{contactIdCandie}}
 Content-Type: {{contentType}}
 
 {
@@ -55,9 +90,116 @@ Content-Type: {{contentType}}
   "birthday": "1999-10-02"
 }
 
+###
+# (4) PUT (UPDATE) AN EXISTING CONTACT - Rutendo (change favoriteColor)
+PUT {{host}}/contacts/{{contactIdRutendo}}
+Content-Type: {{contentType}}
+
+{
+  "firstName": "Rutendo",
+  "lastName": "Makundo",
+  "email": "rutendomakundo@gmail.com",
+  "favoriteColor": "Red",
+  "birthday": "2004-01-24"
+}
 
 ###
-# (5) DELETE A CONTACT BY ID
-# Deletes the contact specified by @contactId.
-# Running this will remove "Candie Makhaya" from the database.
-DELETE {{host}}/contacts/{{contactId}}
+# (4) PUT (UPDATE) AN EXISTING CONTACT - Melanie (change favoriteColor)
+PUT {{host}}/contacts/{{contactIdMelanie}}
+Content-Type: {{contentType}}
+
+{
+  "firstName": "Melanie",
+  "lastName": "Muroiwa",
+  "email": "melt@gmail.com.com",
+  "favoriteColor": "Pink",
+  "birthday": "2010-04-13"
+}
+
+###
+# (4) PUT (UPDATE) AN EXISTING CONTACT - Sarafina (change favoriteColor) (NEW)
+PUT {{host}}/contacts/{{contactIdSarafina}}
+Content-Type: {{contentType}}
+
+{
+  "firstName": "Sarafina",
+  "lastName": "Mazondo",
+  "email": "xerah.mazondo@gmail.com",
+  "favoriteColor": "Teal",
+  "birthday": "2001-07-15"
+}
+
+###
+# (4) PUT (UPDATE) AN EXISTING CONTACT - Wayne (change favoriteColor) (NEW)
+PUT {{host}}/contacts/{{contactIdWayne}}
+Content-Type: {{contentType}}
+
+{
+  "firstName": "Wayne",
+  "lastName": "Chiviti",
+  "email": "kudawayne.hobs@gmail.com",
+  "favoriteColor": "Purple",
+  "birthday": "2003-08-09"
+}
+
+###
+# (4) PUT (UPDATE) AN EXISTING CONTACT - Mirirai (change favoriteColor) (NEW)
+PUT {{host}}/contacts/{{contactIdMirirai}}
+Content-Type: {{contentType}}
+
+{
+  "firstName": "Mirirai",
+  "lastName": "Mutasa",
+  "email": "mirie-chishingo@me.com",
+  "favoriteColor": "Orange",
+  "birthday": "1999-03-01"
+}
+
+###
+# (4) PUT (UPDATE) AN EXISTING CONTACT - Jessica (change favoriteColor) (NEW)
+PUT {{host}}/contacts/{{contactIdJessica}}
+Content-Type: {{contentType}}
+
+{
+  "firstName": "Jessica",
+  "lastName": "Nhundu",
+  "email": "jessica.nhundu@gmail.com",
+  "favoriteColor": "Green",
+  "birthday": "2001-09-05"
+}
+
+
+###
+# (5) DELETE CONTACT - Candie
+DELETE {{host}}/contacts/{{contactIdCandie}}
+Content-Type: {{contentType}}
+
+###
+# (5) DELETE CONTACT - Rutendo
+DELETE {{host}}/contacts/{{contactIdRutendo}}
+Content-Type: {{contentType}}
+
+###
+# (5) DELETE CONTACT - Melanie
+DELETE {{host}}/contacts/{{contactIdMelanie}}
+Content-Type: {{contentType}}
+
+###
+# (5) DELETE CONTACT - Sarafina (NEW)
+DELETE {{host}}/contacts/{{contactIdSarafina}}
+Content-Type: {{contentType}}
+
+###
+# (5) DELETE CONTACT - Wayne (NEW)
+DELETE {{host}}/contacts/{{contactIdWayne}}
+Content-Type: {{contentType}}
+
+###
+# (5) DELETE CONTACT - Mirirai (NEW)
+DELETE {{host}}/contacts/{{contactIdMirirai}}
+Content-Type: {{contentType}}
+
+###
+# (5) DELETE CONTACT - Jessica (NEW)
+DELETE {{host}}/contacts/{{contactIdJessica}}
+Content-Type: {{contentType}}
