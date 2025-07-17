@@ -35,11 +35,11 @@ router.post('/', async (req, res) => {
         description: 'Contact information.',
         required: true,
         schema: {
-            firstName: "John",
-            lastName: "Doe",
-            email: "john.doe@example.com",
-            favoriteColor: "Blue",
-            birthday: "1990-01-01"
+            firstName: "Nevanji",
+            lastName: "Nehoreka",
+            email: "nevanjinehoreka@gmail.com",
+            favoriteColor: "Green",
+            birthday: "1991-10-26"
         }
   } */
   const contact = new Contact({
@@ -66,17 +66,17 @@ router.put('/:id', async (req, res) => {
         description: 'Contact information to update.',
         required: true,
         schema: {
-            firstName: "Jane",
-            lastName: "Doe",
-            email: "jane.doe@example.com",
-            favoriteColor: "Red",
-            birthday: "1992-05-10"
+            firstName: "Nevanji",
+            lastName: "Nehoreka",
+            email: "nevanjinehoreka@gmail.com",
+            favoriteColor: "Green",
+            birthday: "1991-10-26"
         }
   } */
   try {
     const updatedContact = await Contact.findByIdAndUpdate(
-      req.params.id, 
-      req.body, 
+      req.params.id,
+      req.body,
       { new: true, runValidators: true }
     );
     if (!updatedContact) {

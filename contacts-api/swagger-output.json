@@ -6,7 +6,7 @@
     "version": "1.0.0"
   },
   "host": "cse341-project1-1-2ox0.onrender.com",
-  "basePath": "/",
+  "basePath": "/contacts",
   "schemes": [
     "https"
   ],
@@ -36,23 +36,23 @@
               "properties": {
                 "firstName": {
                   "type": "string",
-                  "example": "John"
+                  "example": "Nevanji"
                 },
                 "lastName": {
                   "type": "string",
-                  "example": "Doe"
+                  "example": "Nehoreka"
                 },
                 "email": {
                   "type": "string",
-                  "example": "john.doe@example.com"
+                  "example": "nevanjinehoreka@gmail.com"
                 },
                 "favoriteColor": {
                   "type": "string",
-                  "example": "Blue"
+                  "example": "Green"
                 },
                 "birthday": {
                   "type": "string",
-                  "example": "1990-01-01"
+                  "example": "1991-10-26"
                 }
               }
             }
@@ -110,23 +110,23 @@
               "properties": {
                 "firstName": {
                   "type": "string",
-                  "example": "Jane"
+                  "example": "Nevanji"
                 },
                 "lastName": {
                   "type": "string",
-                  "example": "Doe"
+                  "example": "Nehoreka"
                 },
                 "email": {
                   "type": "string",
-                  "example": "jane.doe@example.com"
+                  "example": "nevanjinehoreka@gmail.com"
                 },
                 "favoriteColor": {
                   "type": "string",
-                  "example": "Red"
+                  "example": "Green"
                 },
                 "birthday": {
                   "type": "string",
-                  "example": "1992-05-10"
+                  "example": "1991-10-26"
                 }
               }
             }

@@ -7,6 +7,7 @@ const doc = {
   },
   host: 'cse341-project1-1-2ox0.onrender.com', // <-- your deployed URL here (no https://)
   schemes: ['https'], // https because Render uses SSL
+  basePath: '/contacts', // THIS IS THE CRUCIAL ADDITION
 };
 
 const outputFile = './swagger-output.json';
